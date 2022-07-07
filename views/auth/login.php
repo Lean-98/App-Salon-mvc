@@ -33,3 +33,7 @@ include_once __DIR__ . "/../templates/alertas.php";
     <a href="/crear-cuenta">¿Aún no tienes una cuenta? Crea una</a>
     <a href="/olvide">¿Olvidaste tu password?</a>
 </div>
+
+<?php 
+include_once __DIR__ . "/../templates/footer.php";
+?>

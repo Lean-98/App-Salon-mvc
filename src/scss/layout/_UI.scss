@@ -20,8 +20,39 @@
     }
 
     .app {
-        width: 95%;
-        margin: 0 auto;
-        padding: 3rem 0;
+        width: 100%;
+        // margin: 0 auto;
+        padding: 3rem 4rem;
+        @include m.tablet {
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+    }
+}
+
+.barra {
+    margin: v.$separacion 0;
+
+    @include m.tablet {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .boton {
+        @include m.boton (v.$negro, v.$blanco);
+    }
+}
+
+.barra-servicio {
+    margin-bottom: v.$separacion;
+
+    @include m.tablet {
+        display:flex;
+        justify-content: space-between;
+    }
+
+    .boton {
+        margin: 0 0 1rem 0;
     }
 }

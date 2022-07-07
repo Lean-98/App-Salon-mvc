@@ -110,7 +110,7 @@ class ActiveRecord {
     }
 
     // Busca un registro por su id
-    public static function find($id) {
+    public static function find(int $id) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
@@ -130,6 +130,12 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
+     // Consulta Plana de SQL (Utilizar cuando los métodos del modelo no son suficientes)
+     public static function SQL($query) {
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // crea un nuevo registro
     public function crear() {
         // Sanitizar los datos
@@ -141,6 +147,8 @@ class ActiveRecord {
         $query .= " ) VALUES (' "; 
         $query .= join("', '", array_values($atributos));
         $query .= " ') ";
+
+        // return json_encode(['query' => $query]); // Debuguear los llamados Fetch
 
         // Resultado de la consulta
         $resultado = self::$db->query($query);
@@ -174,7 +182,7 @@ class ActiveRecord {
 
     // Eliminar un Registro por su ID
     public function eliminar() {
-        $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $query = "DELETE FROM "  . static::$tabla . " WHERE id = '" . self::$db->escape_string($this->id) . "' LIMIT 1";
         $resultado = self::$db->query($query);
         return $resultado;
     }
