@@ -18,6 +18,9 @@ class Router
     }
 
     public function comprobarRutas() {
+
+        iniciaSesion();
+
         if (isset($_SERVER['PATH_INFO'])) {
             $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         } else {
