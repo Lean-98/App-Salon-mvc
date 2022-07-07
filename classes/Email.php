@@ -96,7 +96,7 @@ class Email {
         <h2>¡Gracias por registrarte!</h2>
         <p>Por favor confirma tu correo electrónico para que puedas comenzar a disfrutar de todos los servicios de
             BarberShop</p>
-        <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'><button>Verificar</button></a>
+        <a href='https://shielded-ridge-19225.herokuapp.com/confirmar-cuenta?token=" . $this->token . "'><button>Verificar</button></a>
         <p>Si tú no te registraste en BarberShop, por favor ignora este correo electrónico.</p>
         <div><p></p></div>
         <p><span>Este correo electrónico fue enviado desde una dirección solamente de notificaciones que no puede aceptar correo electrónico entrante. Por favor no respondas a este mensaje.</span></p>
@@ -178,7 +178,7 @@ class Email {
      <body>
          <h1>BarberShop</h1>
          <h2> Hola $this->nombre Has solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo:</h2>
-         <a href='http://localhost:3000/recuperar?token=" . $this->token . "'><button>Verificar</button></a>
+         <a href='https://shielded-ridge-19225.herokuapp.com/recuperar?token=" . $this->token . "'><button>Verificar</button></a>
          <p>Si tú no solicitaste el cambio en tu cuenta de BarberShop, por favor ignora este correo electrónico.</p>
          <div><p></p></div>
          <p><span>Este correo electrónico fue enviado desde una dirección solamente de notificaciones que no puede aceptar correo electrónico entrante. Por favor no respondas a este mensaje.</span></p>
