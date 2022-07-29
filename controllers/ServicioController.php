@@ -31,10 +31,14 @@ class ServicioController {
 
             if(empty($alertas)) {
                 $servicio->guardar();
-                header('Location: /servicios');
+               // Crear mensaje de exito
+               Servicio::setAlerta('exito', 'Servicio Creado Correctamente!'); 
+               // Redireccionar al login
+               header('Refresh: 3; url= /servicios');
             }
         }
 
+        $alertas = Servicio::getAlertas();
         $router->render('servicios/crear', [
             'nombre' => $_SESSION['nombre'],
             'servicio' => $servicio,
@@ -60,10 +64,13 @@ class ServicioController {
 
             if(empty($alertas)) {
                 $servicio->guardar();
-                header('Location: /servicios');
+                Servicio::setAlerta('exito', 'Servicio Actualizado Correctamente!');
+                // Redireccionar al login
+                header('Refresh: 3; url= /servicios');
             }
         }
 
+        $alertas = Servicio::getAlertas();
         $router->render('servicios/actualizar', [
             'nombre' => $_SESSION['nombre'],
             'servicio' => $servicio,
@@ -80,6 +87,7 @@ class ServicioController {
             $id = $_POST['id'];
             $servicio = Servicio::find($id);
             $servicio->eliminar();
+            // Redireccionar a servicios
             header('Location: /servicios');
         }
     }

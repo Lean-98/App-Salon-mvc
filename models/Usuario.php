@@ -24,6 +24,9 @@ class Usuario extends ActiveRecord {
         $this->apellido = $args['apellido'] ?? '';
         $this->email = $args['email'] ?? '';
         $this->password = $args['password'] ?? '';
+        $this->password2 = $args['password2'] ?? '';
+        $this->password_nuevo = $args['password_nuevo'] ?? '';
+        $this->password_nuevo2 = $args['password_nuevo2'] ?? '';
         $this->telefono = $args['telefono'] ?? '';
         $this->admin = $args['admin'] ?? '0';
         $this->confirmado = $args['confirmado'] ?? '0';
@@ -49,6 +52,9 @@ class Usuario extends ActiveRecord {
         }
         if(strlen($this->password) < 6) {
             self::$alertas['error'][] = 'El Password debe contener al menos 6 caracteres!';
+        }
+        if($this->password !== $this->password2) {
+            self::$alertas['error'][] ='Los Passwords son diferentes!';
         }
 
         if( !$this->telefono) {
@@ -85,6 +91,19 @@ class Usuario extends ActiveRecord {
             self::$alertas['error'][] = 'El Password debe tener al menos 6 caracteres!';
         }
         
+        return self::$alertas;
+    }
+
+    public function nuevoPassword() : array {
+        if(!$this->password_nuevo) {
+            self::$alertas['error'][] = 'El Password Nuevo no puede ir Vacio!';
+        }
+        if(strlen($this->password_nuevo) <6 ) {
+            self::$alertas['error'][] ='El Password debe Contener al menos 6 Caracteres!';
+        }
+        if($this->password_nuevo !== $this->password_nuevo2) {
+            self::$alertas['error'][] ='Los Passwords Nuevos son diferentes!';
+        }
         return self::$alertas;
     }
 

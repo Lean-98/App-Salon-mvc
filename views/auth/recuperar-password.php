@@ -8,12 +8,21 @@ include_once __DIR__ . "/../templates/alertas.php";
 <?php if($error) return; ?>
 <form class="formulario" method="POST" >
     <div class="campo">
-        <label for="password">Password:</label>
+        <label for="password_nuevo">Password Nuevo:</label>
         <input 
             type="password"
-            id="password"
-            name="password"
+            id="password_nuevo"
+            name="password_nuevo"
             placeholder="Tu Nuevo Password"
+       />
+    </div>
+    <div class="campo">
+        <label for="password_nuevo2">Repetir Password Nuevo:</label>
+        <input 
+            type="password"
+            id="password_nuevo2"
+            name="password_nuevo2"
+            placeholder="Repite Tu Nuevo Password"
        />
     </div>
     <input type="submit" class="boton" value="Guardar Nuevo Password">

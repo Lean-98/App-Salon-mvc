@@ -82,10 +82,10 @@ class LoginController {
                 $email->enviarInstrucciones();
 
                   // Alerta exito
-                  Usuario::setAlerta('exito', 'Revisa tu email!');
+                  Usuario::setAlerta('exito', 'Hemos Enviado las Instrucciones a tu Email!');
 
                } else {
-                  Usuario::setAlerta('error', 'El usuario no existe o no esa confirmado!');
+                  Usuario::setAlerta('error', 'El usuario no existe o no esta confirmado!');
                }
             }
         }
@@ -116,14 +116,22 @@ class LoginController {
             // Leer el nuevo password y guardarlo
 
             $password = new Usuario($_POST);
-            $alertas = $password->validarPassword();
+            $alertas = $password->nuevoPassword();
 
             if(empty($alertas)) {
-                $usuario->password = null;
-                $usuario->password = $password->password;
+                $usuario->password = '';
+                $usuario->password = $password->password_nuevo;
+                
+                // Hashear el nuevo password
                 $usuario->hashPassword();
-                $usuario->token = null;
+                unset($usuario->password2);
+                unset($usuario->password_nuevo);
+                unset($usuario->password_nuevo2);
+                
+                 // Eliminar el Token
+                $usuario->token = '';
 
+                // Guardar la nueva password en la BD
                 $resultado = $usuario->guardar();
                 if($resultado) {
                   // Crear mensaje de exito
@@ -179,9 +187,7 @@ class LoginController {
 
                    if($resultado) {
                       header('Location: /mensaje');
-                   }
-
-                
+                   }  
                }
             }
 
@@ -215,7 +221,7 @@ class LoginController {
           //Guardar y Actualizar 
            $usuario->guardar();
           //mostrar mensaje de exito
-          Usuario::setAlerta('exito', 'Cuenta Verificada Exitosamente...');
+          Usuario::setAlerta('exito', 'Cuenta Verificada Exitosamente!');
         }
 
         // Obtener alertas

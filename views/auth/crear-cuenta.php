@@ -56,6 +56,15 @@ include_once __DIR__ . "/../templates/alertas.php";
     />
 </div>
 
+<div class="campo">
+    <label for="password2">Repetir Password:</label>
+    <input type="password"
+            id="password2"
+            name="password2"
+            placeholder="Repite Tu Password"
+    />
+</div>
+
 <input type="submit" value="Crear Cuenta" class="boton"> 
 
 </form>
