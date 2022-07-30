@@ -8,7 +8,7 @@ include_once __DIR__ . "/../templates/alertas.php";
 <?php if($error) return; ?>
 <form class="formulario" method="POST" >
     <div class="campo">
-        <label for="password_nuevo">Password Nuevo:</label>
+        <label for="password_nuevo">Password:</label>
         <input 
             type="password"
             id="password_nuevo"
@@ -17,7 +17,7 @@ include_once __DIR__ . "/../templates/alertas.php";
        />
     </div>
     <div class="campo">
-        <label for="password_nuevo2">Repetir Password Nuevo:</label>
+        <label for="password_nuevo2">Repetir Password:</label>
         <input 
             type="password"
             id="password_nuevo2"
@@ -28,7 +28,6 @@ include_once __DIR__ . "/../templates/alertas.php";
     <input type="submit" class="boton" value="Guardar Nuevo Password">
 </form>
 
-<div class="acciones">
-    <a href="/">¿Ya tienes cuenta? Iniciar Sesión</a>
-    <a href="/crear-cuenta">¿Aún no tienes cuenta? Obtener una</a>
-</div>
+<?php 
+include_once __DIR__ . "/../templates/footer.php";
+?>

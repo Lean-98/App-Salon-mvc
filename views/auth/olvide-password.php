@@ -20,6 +20,9 @@ include_once __DIR__ . "/../templates/alertas.php";
 </form>
 
 <div class="acciones">
-    <a href="/">¿Ya tienes una cuenta? Inicia Sesión</a>
-    <a href="/crear-cuenta">¿Aún no tienes una cuenta? Crear Una</a>
+    <a href="/">Volver</a>
 </div>
+
+<?php 
+include_once __DIR__ . "/../templates/footer.php";
+?>

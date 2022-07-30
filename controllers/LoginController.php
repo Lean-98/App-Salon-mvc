@@ -222,6 +222,8 @@ class LoginController {
            $usuario->guardar();
           //mostrar mensaje de exito
           Usuario::setAlerta('exito', 'Cuenta Verificada Exitosamente!');
+          // Redireccionar al login
+          header('Refresh: 3; url= /');
         }
 
         // Obtener alertas

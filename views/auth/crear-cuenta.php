@@ -73,3 +73,7 @@ include_once __DIR__ . "/../templates/alertas.php";
     <a href="/">¿Ya tienes una cuenta? Inicia Sesión</a>
     <a href="/olvide">¿Olvidaste tu password?</a>
 </div>
+
+<?php 
+include_once __DIR__ . "/../templates/footer.php";
+?>
