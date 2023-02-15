@@ -1,5 +1,5 @@
 
-# APP Salon - Proyecto completo de Administración de Citas para Salón de Belleza con MVC PHP 8 MySQL HTML CSS Sass Gulp Javascript.
+# APP Salon - Proyecto completo de Administración de Citas para Salón de Belleza 
 
 
 
