@@ -109,7 +109,7 @@ function paginaSiguiente() {
 async function consultarAPI() {
 
     try {
-        const url = 'https://shielded-ridge-19225.herokuapp.com/api/servicios';
+        const url = 'http://localhost:3000/api/servicios';
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         MostrarServicios(servicios);
@@ -327,7 +327,7 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
 
     try {
     // Petición hacia la API
-    const url ='https://shielded-ridge-19225.herokuapp.com/api/citas';
+    const url ='http://localhost:3000/api/citas';
 
     const respuesta = await fetch(url, {
         method: 'POST',
