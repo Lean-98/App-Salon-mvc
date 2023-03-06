@@ -13,6 +13,9 @@ class Usuario extends ActiveRecord {
     public $apellido;
     public $email;
     public $password;
+    public $password2;
+    public $password_nuevo;
+    public $password_nuevo2;
     public $telefono;
     public $admin;
     public $confirmado;
