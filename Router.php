@@ -17,32 +17,25 @@ class Router
         $this->postRoutes[$url] = $fn;
     }
 
-    public function comprobarRutas() {
+        public function comprobarRutas() {
+            $currentUrl = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
+            $method = $_SERVER['REQUEST_METHOD'];
 
-        iniciaSesion();
-
-        if (isset($_SERVER['PATH_INFO'])) {
-            $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
-        } else {
-            $currentUrl = $_SERVER['REQUEST_URI'] === '' ? '/' : $_SERVER['REQUEST_URI'];
+            iniciaSesion();
+    
+            if ($method === 'GET') {
+                $fn = $this->getRoutes[$currentUrl] ?? null;
+            } else {
+                $fn = $this->postRoutes[$currentUrl] ?? null;
+            }
+    
+            if ( $fn ) {
+                // Call user fn va a llamar una función cuando no sabemos cual sera
+                call_user_func($fn, $this); // This es para pasar argumentos
+            } else {
+                echo "Página No Encontrada o Ruta no válida";
+            }
         }
-        
-        $method = $_SERVER['REQUEST_METHOD'];
-
-        if ($method === 'GET') {
-            $fn = $this->getRoutes[$currentUrl] ?? null;
-        } else {
-            $fn = $this->postRoutes[$currentUrl] ?? null;
-        }
-
-
-        if ( $fn ) {
-            // Call user fn va a llamar una función cuando no sabemos cual sera
-            call_user_func($fn, $this); // This es para pasar argumentos
-        } else {
-            echo "Página No Encontrada o Ruta no válida";
-        }
-    }
 
     public function render($view, $datos = [])
     {

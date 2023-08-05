@@ -109,7 +109,7 @@ function paginaSiguiente() {
 async function consultarAPI() {
 
     try {
-        const url = 'http://localhost:3000/api/servicios';
+        const url = '/api/servicios';
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         MostrarServicios(servicios);
@@ -327,7 +327,7 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
 
     try {
     // Petición hacia la API
-    const url ='http://localhost:3000/api/citas';
+    const url ='/api/citas';
 
     const respuesta = await fetch(url, {
         method: 'POST',
